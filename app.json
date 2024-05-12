@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "React-native-mosh-crash-course",
-    "slug": "React-native-mosh-crash-course",
+    "slug": "ecommerce",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,16 +12,24 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.alisabet.ecommerce"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.alisabet.ecommerce"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b9a31d15-a50f-4316-9598-b71c4ead5f04"
+      }
+    },
+    "owner": "alisabet"
   }
 }
