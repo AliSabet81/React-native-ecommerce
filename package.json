@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.1",
+    "@react-native-community/hooks": "^3.0.0",
     "expo": "~51.0.2",
     "expo-status-bar": "~1.12.1",
     "expo-updates": "^0.25.11",
