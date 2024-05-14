@@ -1,17 +1,18 @@
-import { StatusBar } from "expo-status-bar";
-import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { Alert, Button, StatusBar, StyleSheet, Text, View } from "react-native";
+import { AppText } from "./app/components";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
-import ViewImageScreen from "./app/screens/ViewImageScreen";
+import React from "react";
+import { Card } from "./app/components/Card/Card";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 export default function App() {
-  return <ViewImageScreen />;
+  StatusBar.currentHeight;
+  return <ListingDetailsScreen />;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "#f8f4f4",
   },
 });
