@@ -1,12 +1,11 @@
-import { StatusBar } from "expo-status-bar";
-import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import WelcomeScreen from "./app/screens/WelcomeScreen";
-import ViewImageScreen from "./app/screens/ViewImageScreen";
-import AppText from "./app/components/AppText";
+import { Alert, Button, StatusBar, StyleSheet, Text, View } from "react-native";
+import { AppText } from "./app/components";
 
 export default function App() {
+  StatusBar.currentHeight;
   return (
     <View style={styles.container}>
+      <Button onPress={() => Alert.alert("message")} title="hello" />
       <AppText>hello</AppText>
       <Text>hello</Text>
     </View>
@@ -16,7 +15,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#ff5",
     justifyContent: "center",
     alignItems: "center",
   },
