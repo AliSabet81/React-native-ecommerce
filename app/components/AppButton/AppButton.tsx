@@ -9,7 +9,7 @@ export const AppButton = ({
 }: {
   title: string;
   onPress: () => void;
-  color?: string;
+  color?: keyof typeof colors;
 }) => {
   return (
     <TouchableOpacity
