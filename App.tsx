@@ -3,25 +3,16 @@ import { AppText } from "./app/components";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import React from "react";
 import { Card } from "./app/components/Card/Card";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 export default function App() {
   StatusBar.currentHeight;
-  return (
-    <View style={styles.container}>
-      <Card
-        title="Red Jacket for sale"
-        subTitle="$100"
-        image={require("./app/assets/jacket.jpg")}
-      />
-    </View>
-  );
+  return <ListingDetailsScreen />;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#f8f4f4",
-    padding: 20,
-    paddingTop: 100,
   },
 });
