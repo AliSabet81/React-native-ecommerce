@@ -3374,7 +3374,7 @@ expo-asset@~10.0.6:
     invariant "^2.2.4"
     md5-file "^3.2.3"
 
-expo-constants@~16.0.0:
+expo-constants@^16.0.1, expo-constants@~16.0.0:
   version "16.0.1"
   resolved "https://registry.npmjs.org/expo-constants/-/expo-constants-16.0.1.tgz"
   integrity sha512-s6aTHtglp926EsugWtxN7KnpSsE9FCEjb7CgEjQQ78Gpu4btj4wB+IXot2tlqNwqv+x7xFe5veoPGfJDGF/kVg==
