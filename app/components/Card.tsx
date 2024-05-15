@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
-import { colors } from "../../config/colors";
-import { AppText } from "../AppText";
+import { colors } from "../config/colors";
+import { AppText } from "./AppText";
 
 export const Card = ({
   title,
