@@ -1,13 +1,9 @@
-import { Alert, Button, StatusBar, StyleSheet, Text, View } from "react-native";
-import { AppText } from "./app/components";
-import WelcomeScreen from "./app/screens/WelcomeScreen";
+import { StyleSheet } from "react-native";
 import React from "react";
-import { Card } from "./app/components/Card/Card";
-import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
 
 export default function App() {
-  StatusBar.currentHeight;
-  return <ListingDetailsScreen />;
+  return <ViewImageScreen />;
 }
 
 const styles = StyleSheet.create({
