@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Animated,
   GestureResponderEvent,
   Image,
   ImageSourcePropType,
@@ -11,10 +10,7 @@ import {
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import { AppText } from "./AppText";
 import { colors } from "../config/colors";
-import {
-  GestureHandlerRootView,
-  RectButton,
-} from "react-native-gesture-handler";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export const ListItem = ({
   title,
