@@ -9,5 +9,6 @@ export const Screen = ({ children }: { children: ReactNode }) => {
 const styles = StyleSheet.create({
   screen: {
     paddingTop: Constans.statusBarHeight,
+    flex: 1,
   },
 });
