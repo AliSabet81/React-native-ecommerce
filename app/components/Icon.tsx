@@ -3,9 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { colors } from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ComponentProps } from "react";
-
-type Props = ComponentProps<typeof MaterialCommunityIcons>;
-export type IconName = Props["name"];
+import { IconName } from "../types";
 
 export const Icon = ({
   name,

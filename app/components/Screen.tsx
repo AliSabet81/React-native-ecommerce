@@ -1,9 +1,20 @@
 import React, { ReactNode } from "react";
 import Constans from "expo-constants";
-import { SafeAreaView, StyleSheet } from "react-native";
+import {
+  RegisteredStyle,
+  SafeAreaView,
+  StyleProp,
+  StyleSheet,
+} from "react-native";
 
-export const Screen = ({ children }: { children: ReactNode }) => {
-  return <SafeAreaView style={styles.screen}>{children}</SafeAreaView>;
+export const Screen = ({
+  children,
+  style,
+}: {
+  children: ReactNode;
+  style?: { [key: string]: string };
+}) => {
+  return <SafeAreaView style={[styles.screen, style]}>{children}</SafeAreaView>;
 };
 
 const styles = StyleSheet.create({

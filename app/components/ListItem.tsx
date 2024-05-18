@@ -18,21 +18,21 @@ export const ListItem = ({
   image,
   onPress,
   renderRightActions,
-  ImageComponent,
+  IconComponent,
 }: {
   title: string;
   subTitle?: string;
   image?: ImageSourcePropType;
-  onPress: (event: GestureResponderEvent) => void;
+  onPress?: (event: GestureResponderEvent) => void;
   renderRightActions?: () => ReactNode;
-  ImageComponent?: ReactNode;
+  IconComponent?: ReactNode;
 }) => {
   return (
     <GestureHandlerRootView>
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
           <View style={styles.container}>
-            {ImageComponent}
+            {IconComponent}
             {image && <Image style={styles.image} source={image} />}
             <View style={styles.detailesContainer}>
               <AppText style={styles.title}>{title}</AppText>
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     padding: 15,
+    backgroundColor: colors.white,
   },
   image: {
     width: 70,

@@ -3,25 +3,10 @@ import React from "react";
 import MessagesScreen from "./app/screens/MessagesScreen";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import { Icon, ListItem, Screen } from "./app/components";
+import AccountScreen from "./app/screens/AccountScreen";
 
 export default function App() {
-  return (
-    <Screen>
-      <ListItem
-        onPress={() => {}}
-        title="My title"
-        subTitle="My subtitle"
-        ImageComponent={
-          <Icon
-            name="email"
-            size={50}
-            backgroundColor="red"
-            iconColor="white"
-          />
-        }
-      />
-    </Screen>
-  );
+  return <AccountScreen />;
 }
 
 const styles = StyleSheet.create({
