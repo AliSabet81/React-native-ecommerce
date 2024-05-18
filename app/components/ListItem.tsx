@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
+import {
+  GestureResponderEvent,
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  TouchableHighlight,
+  View,
+} from "react-native";
 import { AppText } from "./AppText";
 import { colors } from "../config/colors";
 
@@ -7,19 +14,23 @@ export const ListItem = ({
   title,
   subTitle,
   image,
+  onPress,
 }: {
   title: string;
   subTitle: string;
   image: ImageSourcePropType;
+  onPress: (event: GestureResponderEvent) => void;
 }) => {
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={image} />
-      <View>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
+    <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
+      <View style={styles.container}>
+        <Image style={styles.image} source={image} />
+        <View>
+          <AppText style={styles.title}>{title}</AppText>
+          <AppText style={styles.subTitle}>{subTitle}</AppText>
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 };
 
