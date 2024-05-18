@@ -12,7 +12,7 @@ export const Screen = ({
   style,
 }: {
   children: ReactNode;
-  style?: { [key: string]: string };
+  style?: { [key: string]: string | number };
 }) => {
   return <SafeAreaView style={[styles.screen, style]}>{children}</SafeAreaView>;
 };
