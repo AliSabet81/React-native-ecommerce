@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import {
   GestureResponderEvent,
   Image,
@@ -18,22 +18,27 @@ export const ListItem = ({
   image,
   onPress,
   renderRightActions,
+  ImageComponent,
 }: {
   title: string;
-  subTitle: string;
-  image: ImageSourcePropType;
+  subTitle?: string;
+  image?: ImageSourcePropType;
   onPress: (event: GestureResponderEvent) => void;
-  renderRightActions: any;
+  renderRightActions?: () => ReactNode;
+  ImageComponent?: ReactNode;
 }) => {
   return (
     <GestureHandlerRootView>
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
           <View style={styles.container}>
-            <Image style={styles.image} source={image} />
-            <View>
+            {ImageComponent}
+            {image && <Image style={styles.image} source={image} />}
+            <View style={styles.detailesContainer}>
               <AppText style={styles.title}>{title}</AppText>
-              <AppText style={styles.subTitle}>{subTitle}</AppText>
+              {subTitle && (
+                <AppText style={styles.subTitle}>{subTitle}</AppText>
+              )}
             </View>
           </View>
         </TouchableHighlight>
@@ -51,7 +56,10 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 35,
-    marginRight: 10,
+  },
+  detailesContainer: {
+    marginLeft: 10,
+    justifyContent: "center",
   },
   title: {
     fontWeight: "500",
