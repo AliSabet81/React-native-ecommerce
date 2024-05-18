@@ -79,14 +79,7 @@ const MessagesScreen = () => {
         ItemSeparatorComponent={() => <ListItemSeprator />}
         refreshing={refreshing}
         onRefresh={() => {
-          setMessages([
-            {
-              id: 4,
-              title: "T4",
-              description: "D4",
-              image: require("../assets/mosh.jpg"),
-            },
-          ]);
+          setMessages(initialMessages);
         }}
       />
     </Screen>
