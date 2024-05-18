@@ -1,6 +1,11 @@
 import React from "react";
-import { FlatList, SafeAreaView, StyleSheet, View } from "react-native";
-import { ListItem, ListItemSeprator, Screen } from "../components";
+import { FlatList, StyleSheet, View } from "react-native";
+import {
+  ListItem,
+  ListItemDeleteAction,
+  ListItemSeprator,
+  Screen,
+} from "../components";
 import Constans from "expo-constants";
 
 const messages = [
@@ -42,6 +47,7 @@ const MessagesScreen = () => {
             title={item.title}
             subTitle={item.description}
             image={item.image}
+            renderRightActions={() => <ListItemDeleteAction />}
           />
         )}
         ItemSeparatorComponent={() => <ListItemSeprator />}
