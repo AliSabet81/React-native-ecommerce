@@ -1,5 +1,11 @@
-import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import {
+  FlatList,
+  GestureResponderEvent,
+  ImageSourcePropType,
+  StyleSheet,
+  View,
+} from "react-native";
 import {
   ListItem,
   ListItemDeleteAction,
@@ -8,7 +14,14 @@ import {
 } from "../components";
 import Constans from "expo-constants";
 
-const messages = [
+interface IMessage {
+  id: number;
+  title: string;
+  description: string;
+  image: ImageSourcePropType;
+}
+
+const initialMessages: IMessage[] = [
   {
     id: 1,
     title: "T1",
@@ -36,6 +49,11 @@ const messages = [
 ];
 
 const MessagesScreen = () => {
+  const [messages, setMessages] = useState(initialMessages);
+  const handleDelete = (message: IMessage) => {
+    setMessages(messages.filter((m) => m.id !== message.id));
+  };
+
   return (
     <Screen>
       <FlatList
@@ -47,7 +65,13 @@ const MessagesScreen = () => {
             title={item.title}
             subTitle={item.description}
             image={item.image}
-            renderRightActions={() => <ListItemDeleteAction />}
+            renderRightActions={() => (
+              <ListItemDeleteAction
+                onPress={() => {
+                  handleDelete(item);
+                }}
+              />
+            )}
           />
         )}
         ItemSeparatorComponent={() => <ListItemSeprator />}
