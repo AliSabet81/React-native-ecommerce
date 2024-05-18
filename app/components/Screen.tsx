@@ -1,11 +1,6 @@
 import React, { ReactNode } from "react";
 import Constans from "expo-constants";
-import {
-  RegisteredStyle,
-  SafeAreaView,
-  StyleProp,
-  StyleSheet,
-} from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 
 export const Screen = ({
   children,

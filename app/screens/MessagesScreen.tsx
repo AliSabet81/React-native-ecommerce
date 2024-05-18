@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  FlatList,
-  GestureResponderEvent,
-  ImageSourcePropType,
-  StyleSheet,
-  View,
-} from "react-native";
+import { FlatList, ImageSourcePropType, StyleSheet, View } from "react-native";
 import {
   ListItem,
   ListItemDeleteAction,
