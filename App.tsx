@@ -1,11 +1,14 @@
-import { StyleSheet, View } from "react-native";
-import React from "react";
-import { AppTextInput, Screen } from "./app/components";
+import { StyleSheet, Switch, View } from "react-native";
+import React, { useState } from "react";
+import { AppPicker, AppTextInput, Screen } from "./app/components";
 
 export default function App() {
+  const [isNew, setIsNew] = useState(false);
   return (
     <Screen>
-      <AppTextInput icon={"email"} placeholder="UserName" />
+      <AppPicker icon={"apps"} placeholder="Category" />
+      <AppTextInput icon={"email"} placeholder="Email" />
+      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
     </Screen>
   );
 }
