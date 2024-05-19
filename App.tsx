@@ -1,8 +1,13 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
+import { AppTextInput, Screen } from "./app/components";
 
 export default function App() {
-  return <View></View>;
+  return (
+    <Screen>
+      <AppTextInput icon={"email"} placeholder="UserName" />
+    </Screen>
+  );
 }
 
 const styles = StyleSheet.create({

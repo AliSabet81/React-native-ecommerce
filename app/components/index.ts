@@ -6,3 +6,4 @@ export * from "./Screen";
 export * from "./ListItemSeprator";
 export * from "./ListItemDeleteAction";
 export * from "./Icon";
+export * from "./AppTextInput";
