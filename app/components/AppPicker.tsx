@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Dispatch, useState } from "react";
 import {
   Button,
   FlatList,
@@ -15,13 +15,26 @@ import { AppText } from "./AppText";
 import { Screen } from "./Screen";
 import { PickerItem } from "./PickerItem";
 
-interface IAppTextInput extends TextInputProps {
-  icon: IconName;
-  items: { label: string; value: number }[];
-  placeholder?: string;
+interface item {
+  label: string;
+  value: number;
 }
 
-export const AppPicker = ({ icon, placeholder, items }: IAppTextInput) => {
+interface IAppTextInput extends TextInputProps {
+  icon: IconName;
+  items: item[];
+  placeholder?: string;
+  selectedItem?: item;
+  onSelectItem?: (item: item) => void;
+}
+
+export const AppPicker = ({
+  icon,
+  placeholder,
+  items,
+  selectedItem,
+  onSelectItem,
+}: IAppTextInput) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -36,7 +49,9 @@ export const AppPicker = ({ icon, placeholder, items }: IAppTextInput) => {
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>{placeholder}</AppText>
+          <AppText style={styles.text}>
+            {selectedItem ? selectedItem.label : placeholder}
+          </AppText>
           <MaterialCommunityIcons
             name={"chevron-down"}
             size={20}
@@ -53,7 +68,12 @@ export const AppPicker = ({ icon, placeholder, items }: IAppTextInput) => {
             renderItem={({ item }) => (
               <PickerItem
                 label={item.label}
-                onPress={() => console.log(item)}
+                onPress={() => {
+                  setModalVisible(false);
+                  if (onSelectItem) {
+                    onSelectItem(item);
+                  }
+                }}
               />
             )}
           />

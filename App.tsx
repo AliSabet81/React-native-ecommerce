@@ -9,12 +9,20 @@ const categories = [
 ];
 
 export default function App() {
-  const [isNew, setIsNew] = useState(false);
+  const [category, setCategory] = useState<{
+    label: string;
+    value: number;
+  }>(categories[0]);
   return (
     <Screen>
-      <AppPicker items={categories} icon={"apps"} placeholder="Category" />
+      <AppPicker
+        selectedItem={category}
+        onSelectItem={(item) => setCategory(item)}
+        items={categories}
+        icon={"apps"}
+        placeholder="Category"
+      />
       <AppTextInput icon={"email"} placeholder="Email" />
-      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
     </Screen>
   );
 }
