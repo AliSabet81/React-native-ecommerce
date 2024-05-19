@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import {
   Button,
+  FlatList,
   Modal,
   StyleSheet,
-  Text,
-  TextInput,
   TextInputProps,
   TouchableWithoutFeedback,
   View,
@@ -14,16 +13,15 @@ import { styles as defaultStyles } from "../config/styles";
 import { IconName } from "../types";
 import { AppText } from "./AppText";
 import { Screen } from "./Screen";
+import { PickerItem } from "./PickerItem";
 
 interface IAppTextInput extends TextInputProps {
   icon: IconName;
+  items: { label: string; value: number }[];
+  placeholder?: string;
 }
 
-export const AppPicker = ({
-  icon,
-  placeholder,
-  ...otherProps
-}: IAppTextInput) => {
+export const AppPicker = ({ icon, placeholder, items }: IAppTextInput) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -49,6 +47,16 @@ export const AppPicker = ({
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
           <Button title="Close" onPress={() => setModalVisible(false)} />
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.value.toString()}
+            renderItem={({ item }) => (
+              <PickerItem
+                label={item.label}
+                onPress={() => console.log(item)}
+              />
+            )}
+          />
         </Screen>
       </Modal>
     </>
