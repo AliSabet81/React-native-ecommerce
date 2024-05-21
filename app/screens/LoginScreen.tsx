@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
-import { AppButton, AppText, AppTextInput, Screen } from "../components";
+import { AppButton, AppTextInput, ErrorMessage, Screen } from "../components";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -29,7 +29,7 @@ const LoginScreen = () => {
               keyboardType="email-address"
               textContentType="emailAddress"
             />
-            <AppText style={{ color: "red" }}>{errors.email}</AppText>
+            <ErrorMessage error={errors.email} />
             <AppTextInput
               onChangeText={handleChange("password")}
               placeholder="Password"
@@ -39,7 +39,7 @@ const LoginScreen = () => {
               secureTextEntry
               textContentType="password"
             />
-            <AppText style={{ color: "red" }}>{errors.password}</AppText>
+            <ErrorMessage error={errors.password} />
             <AppButton title="Login" onPress={handleSubmit} />
           </>
         )}
