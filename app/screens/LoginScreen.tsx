@@ -6,6 +6,7 @@ import {
   AppTextInput,
   ErrorMessage,
   Screen,
+  SubmitButton,
 } from "../components";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -24,7 +25,7 @@ const LoginScreen = () => {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, setFieldTouched }) => (
+        {() => (
           <>
             <AppFormField
               name="email"
@@ -37,8 +38,6 @@ const LoginScreen = () => {
             />
             <AppFormField
               name="password"
-              onChangeText={handleChange("password")}
-              onBlur={() => setFieldTouched("password")}
               placeholder="Password"
               icon="lock"
               autoCapitalize="none"
@@ -46,7 +45,7 @@ const LoginScreen = () => {
               secureTextEntry
               textContentType="password"
             />
-            <AppButton title="Login" onPress={handleSubmit} />
+            <SubmitButton title="Login" />
           </>
         )}
       </Formik>
