@@ -20,8 +20,8 @@ interface item {
   value: number;
 }
 
-interface IAppTextInput extends TextInputProps {
-  icon: IconName;
+export interface IAppPicker extends TextInputProps {
+  icon?: IconName;
   items: item[];
   placeholder?: string;
   selectedItem?: item;
@@ -34,7 +34,7 @@ export const AppPicker = ({
   items,
   selectedItem,
   onSelectItem,
-}: IAppTextInput) => {
+}: IAppPicker) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (

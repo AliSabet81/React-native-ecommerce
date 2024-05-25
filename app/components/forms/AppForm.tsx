@@ -2,7 +2,7 @@ import { Formik } from "formik";
 import React, { ReactNode } from "react";
 
 interface IAppForm {
-  initialValues: { [key: string]: string };
+  initialValues: { [key: string]: string | null };
   onSubmit: (values: any) => void;
   validationSchema: Object;
   children: ReactNode;

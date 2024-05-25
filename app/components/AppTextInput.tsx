@@ -5,7 +5,7 @@ import { styles as defaultStyles } from "../config/styles";
 import { IconName } from "../types";
 
 export interface IAppTextInput extends TextInputProps {
-  icon: IconName;
+  icon?: IconName;
 }
 
 export const AppTextInput = ({ icon, ...otherProps }: IAppTextInput) => {
