@@ -1,7 +1,6 @@
 import { useFormikContext } from "formik";
 import React from "react";
-import { AppTextInput, IAppTextInput } from "./AppTextInput";
-import { ErrorMessage } from "./ErrorMessage";
+import { AppTextInput, ErrorMessage, IAppTextInput } from "..";
 
 interface IAppFormField extends IAppTextInput {
   name: string;

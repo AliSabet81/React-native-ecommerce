@@ -1,5 +1,5 @@
 import React from "react";
-import { AppButton } from "./AppButton";
+import { AppButton } from "..";
 import { useFormikContext } from "formik";
 
 export const SubmitButton = ({ title }: { title: string }) => {
