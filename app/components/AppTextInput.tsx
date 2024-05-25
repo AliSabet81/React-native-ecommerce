@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { styles as defaultStyles } from "../config/styles";
 import { IconName } from "../types";
 
-interface IAppTextInput extends TextInputProps {
+export interface IAppTextInput extends TextInputProps {
   icon: IconName;
 }
 
