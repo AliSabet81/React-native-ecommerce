@@ -23,7 +23,7 @@ const categories = [
   { label: "Camera", value: 3 },
 ];
 
-function ListingEditScreen() {
+const ListingEditScreen = () => {
   return (
     <Screen style={styles.container}>
       <Form
@@ -55,11 +55,12 @@ function ListingEditScreen() {
       </Form>
     </Screen>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     padding: 10,
   },
 });
+
 export default ListingEditScreen;
