@@ -7,10 +7,12 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Swipeable from "react-native-gesture-handler/Swipeable";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 import { AppText } from "./AppText";
 import { colors } from "../config/colors";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export const ListItem = ({
   title,
@@ -40,6 +42,11 @@ export const ListItem = ({
                 <AppText style={styles.subTitle}>{subTitle}</AppText>
               )}
             </View>
+            <MaterialCommunityIcons
+              color={colors.medium}
+              name="chevron-right"
+              size={25}
+            />
           </View>
         </TouchableHighlight>
       </Swipeable>
@@ -52,6 +59,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 15,
     backgroundColor: colors.white,
+    alignItems: "center",
   },
   image: {
     width: 70,
@@ -61,6 +69,7 @@ const styles = StyleSheet.create({
   detailesContainer: {
     marginLeft: 10,
     justifyContent: "center",
+    flex: 1,
   },
   title: {
     fontWeight: "500",
