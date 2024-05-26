@@ -1,4 +1,4 @@
-import React, { Dispatch, useState } from "react";
+import React, { useState } from "react";
 import {
   Button,
   DimensionValue,
@@ -12,9 +12,8 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { styles as defaultStyles } from "../config/styles";
 import { IconName } from "../types";
-import { AppText } from "./AppText";
-import { Screen } from "./Screen";
-import { PickerItem } from "./PickerItem";
+
+import { AppText, CategoryPickerItem, PickerItem, Screen } from ".";
 
 interface item {
   label: string;
@@ -26,8 +25,9 @@ export interface IAppPicker extends TextInputProps {
   items: item[];
   placeholder?: string;
   selectedItem?: item;
-  width?: DimensionValue | undefined;
+  width?: DimensionValue;
   onSelectItem?: (item: item) => void;
+  PickerItemComponent?: typeof PickerItem | typeof CategoryPickerItem;
 }
 
 export const AppPicker = ({
@@ -37,6 +37,7 @@ export const AppPicker = ({
   selectedItem,
   onSelectItem,
   width = "100%",
+  PickerItemComponent = PickerItem,
 }: IAppPicker) => {
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -73,7 +74,7 @@ export const AppPicker = ({
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem
+              <PickerItemComponent
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false);

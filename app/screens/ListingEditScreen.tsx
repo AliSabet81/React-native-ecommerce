@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
 import {
+  CategoryPickerItem,
   AppForm as Form,
   AppFormField as FormField,
   AppFormPicker as Picker,
@@ -45,6 +46,7 @@ const ListingEditScreen = () => {
           placeholder="Price"
         />
         <Picker
+          PickerItemComponent={CategoryPickerItem}
           width={"50%"}
           items={categories}
           name="category"
