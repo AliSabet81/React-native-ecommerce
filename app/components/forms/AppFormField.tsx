@@ -6,12 +6,13 @@ interface IAppFormField extends IAppTextInput {
   name: string;
 }
 
-export const AppFormField = ({ name, ...otherProps }: IAppFormField) => {
+export const AppFormField = ({ name, width, ...otherProps }: IAppFormField) => {
   const { errors, touched, handleChange, setFieldTouched } = useFormikContext();
   return (
     <>
       <AppTextInput
         onChangeText={handleChange(name)}
+        width={width}
         onBlur={() => setFieldTouched(name)}
         {...otherProps}
       />

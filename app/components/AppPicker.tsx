@@ -1,6 +1,7 @@
 import React, { Dispatch, useState } from "react";
 import {
   Button,
+  DimensionValue,
   FlatList,
   Modal,
   StyleSheet,
@@ -25,6 +26,7 @@ export interface IAppPicker extends TextInputProps {
   items: item[];
   placeholder?: string;
   selectedItem?: item;
+  width?: DimensionValue | undefined;
   onSelectItem?: (item: item) => void;
 }
 
@@ -34,13 +36,14 @@ export const AppPicker = ({
   items,
   selectedItem,
   onSelectItem,
+  width = "100%",
 }: IAppPicker) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -92,7 +95,6 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
     padding: 15,
     marginVertical: 10,
     alignItems: "center",

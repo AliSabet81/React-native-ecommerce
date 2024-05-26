@@ -7,7 +7,12 @@ interface IAppFormPicker extends IAppPicker {
   name: string;
 }
 
-export const AppFormPicker = ({ items, name, placeholder }: IAppFormPicker) => {
+export const AppFormPicker = ({
+  items,
+  name,
+  placeholder,
+  width,
+}: IAppFormPicker) => {
   const { errors, setFieldValue, touched, values } = useFormikContext();
 
   return (
@@ -16,6 +21,7 @@ export const AppFormPicker = ({ items, name, placeholder }: IAppFormPicker) => {
         items={items}
         onSelectItem={(item) => setFieldValue(name, item)}
         placeholder={placeholder}
+        width={width}
         // @ts-ignore
         selectedItem={values[name]}
       />
