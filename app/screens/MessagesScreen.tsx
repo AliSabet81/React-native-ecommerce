@@ -1,9 +1,21 @@
-import React from "react";
-import { FlatList, SafeAreaView, StyleSheet } from "react-native";
-import { ListItem, Screen } from "../components";
+import React, { useState } from "react";
+import { FlatList, ImageSourcePropType, StyleSheet, View } from "react-native";
+import {
+  ListItem,
+  ListItemDeleteAction,
+  ListItemSeprator,
+  Screen,
+} from "../components";
 import Constans from "expo-constants";
 
-const messages = [
+interface IMessage {
+  id: number;
+  title: string;
+  description: string;
+  image: ImageSourcePropType;
+}
+
+const initialMessages: IMessage[] = [
   {
     id: 1,
     title: "T1",
@@ -31,6 +43,13 @@ const messages = [
 ];
 
 const MessagesScreen = () => {
+  const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const handleDelete = (message: IMessage) => {
+    setMessages(messages.filter((m) => m.id !== message.id));
+  };
+
   return (
     <Screen>
       <FlatList
@@ -38,11 +57,24 @@ const MessagesScreen = () => {
         keyExtractor={(message) => message.id.toString()}
         renderItem={({ item }) => (
           <ListItem
+            onPress={() => console.log("Message")}
             title={item.title}
             subTitle={item.description}
             image={item.image}
+            renderRightActions={() => (
+              <ListItemDeleteAction
+                onPress={() => {
+                  handleDelete(item);
+                }}
+              />
+            )}
           />
         )}
+        ItemSeparatorComponent={() => <ListItemSeprator />}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages(initialMessages);
+        }}
       />
     </Screen>
   );
