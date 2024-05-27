@@ -26,6 +26,7 @@ export interface IAppPicker extends TextInputProps {
   placeholder?: string;
   selectedItem?: item;
   width?: DimensionValue;
+  numberOfColumns?: number;
   onSelectItem?: (item: item) => void;
   PickerItemComponent?: typeof PickerItem | typeof CategoryPickerItem;
 }
@@ -37,6 +38,7 @@ export const AppPicker = ({
   selectedItem,
   onSelectItem,
   width = "100%",
+  numberOfColumns = 1,
   PickerItemComponent = PickerItem,
 }: IAppPicker) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -71,11 +73,12 @@ export const AppPicker = ({
         <Screen>
           <Button title="Close" onPress={() => setModalVisible(false)} />
           <FlatList
+            numColumns={numberOfColumns}
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
               <PickerItemComponent
-                label={item.label}
+                item={item}
                 onPress={() => {
                   setModalVisible(false);
                   if (onSelectItem) {
