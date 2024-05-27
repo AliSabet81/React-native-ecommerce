@@ -1,6 +1,6 @@
 import React from "react";
 import { useFormikContext } from "formik";
-import { AppPicker, IAppPicker } from "../AppPicker";
+import { AppPicker, IAppPicker } from "../Picker";
 import { ErrorMessage } from "./ErrorMessage";
 
 interface IAppFormPicker extends IAppPicker {

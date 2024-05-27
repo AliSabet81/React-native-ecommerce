@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
-import { AppText } from "./AppText";
+import { AppText } from "./Text";
 import { ICategoryPickerItem } from "./CategoryPickerItem";
 
 export const PickerItem = ({ onPress, item }: ICategoryPickerItem) => {
